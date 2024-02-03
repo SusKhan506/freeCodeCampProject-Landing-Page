@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+code {
+    background-color: rgb(200, 198, 198);
+    display: block;
+    padding: 1rem;
+    margin: 1rem auto;
+}
+
+header {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+header p {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+h3 {
+    margin-bottom: 0.5rem;
+    color: black;
+    font-size: 2rem;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(255, 255, 255);
+    text-shadow: 0 1px 0 1px white;
+    letter-spacing: 0.14rem;
+    padding-top: 1rem;
+}
+
+.container {
+    
+    text-align: center;
+    overflow: auto;
+    display: flex;
+    position: relative;
+}
+
+nav {
+    background-color: #5d5f60;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 2.2rem;
+    gap: 2rem;
+    position: fixed;
+    float: left;
+
+}
+nav a {
+   text-decoration: none;
+    background-image: linear-gradient(to right, #AA076B 0%, #61045F 51%, #AA076B 100%);
+    margin: 2px;
+    padding: 15px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    /* display: block; */
+}
+
+nav a:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    background-color: #9F6976;
+    padding: 2rem 5rem;
+    margin-left: 20rem;
+    text-align: justify;
+}
+
+.main-section {
+    margin: 3rem 0;
+    color: white;
+}
+
+section p {
+    color: white;
+}
+
+@media screen and (max-width: 1050px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+    }
+
+    main {
+        padding: 0 0 0 1rem;
+       margin: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 600px;
+        text-wrap: wrap;
+
+    }
+
+    nav {
+        gap: 1rem;
+        position: relative;
+        max-height: fit-content;
+        height: auto;
+        /* position: static !important; */
+        /* max-width: fit-content; */
+        padding: 2rem 0;
+        padding-bottom: 14px;
+        /* padding margin not working */
+        margin-bottom: 14px;
+        float: top;
+
+    }
+
+    code {
+        background-color: rgb(200, 198, 198);
+        display: inline-block;
+        /* padding: 0.5rem; */
+        margin: 0.5rem 1rem 0 0;
+        text-wrap: wrap;
+        /* position: relative;
+       left: 0;
+       right: 100;    */
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+}

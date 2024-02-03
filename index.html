@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Technical document Page</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            @media screen and (max-width: 1050px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+    }
+
+    main {
+        padding: 0 0 0 1rem;
+       margin: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 600px;
+        text-wrap: wrap;
+
+    }
+
+    nav {
+        gap: 1rem;
+        position: relative;
+        max-height: fit-content;
+        height: auto;
+        padding: 2rem 0;
+        padding-bottom: 14px;
+        margin-bottom: 14px;
+        float: top;
+
+    }
+
+    code {
+        background-color: rgb(200, 198, 198);
+        display: inline-block;
+        margin: 0.5rem 1rem 0 0;
+        text-wrap: wrap;
+      
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+}
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <nav id="navbar">
+                <header>Java Script</header>
+                <a href="#Introduction" class="nav-link">Introduction</a>
+                <a href="#Browser_Environment" class="nav-link">Browser Environment</a>
+                <a href="#Browser_Object_Model" class="nav-link">Browser Object Model</a>
+                <a href="#Dom_tree" class="nav-link">Dom tree</a>
+                <a href="#Walking_the_Dom" class="nav-link">Walking the Dom</a>
+                <a href="#Searching"class="nav-link">Searching</a>
+               
+            </nav>
+            <main id="main-doc">
+            <section class="main-section" id="Introduction">
+                <header>
+                    <h1>Introduction</h1></header>
+                    <p>JavaScript is an open-source programming language designed for creating web-centric applications. It is lightweight and interpreted which makes it much faster than other languages and is integrated with HTML making it easier to implement in web applications.</p>
+                 </section>
+            <section class="main-section" id="Browser_Environment">
+                <header><h3>Browser Environment</h3></header>
+                <p>
+                    The JavaScript language was initially created for web browsers. Since then, it has evolved into a
+                    language with many uses and platforms. <br>
+
+                    A platform may be a browser, or a web-server or another host, or even a “smart” coffee machine if it
+                    can run JavaScript. Each of these provides platform-specific functionality. The JavaScript
+                    specification calls that a host environment. <br>
+
+                    A host environment provides its own objects and functions in addition to the language core. Web
+                    browsers give a means to control web pages. Node.js provides server-side features, and so on. <br>
+
+                </p>
+
+                <p>There’s a “root” object called window. It has two roles:</p>
+                <ol>
+                    <li>First, it is a global object for JavaScript code, as described in the chapter Global object.
+                    </li>
+                    <li>Second, it represents the “browser window” and provides methods to control it.</li>
+                </ol>
+                <code>
+                    function sayHi() {
+                        alert("Hello");
+                      } <br>
+                
+                      // global functions are methods </br> of the global object:
+                      window.sayHi();
+                </code>
+                <p>Here, we used document.body.style, but there’s much, much more. Properties and methods are described
+                    in the specification: DOM Living Standard.</p>
+            </section>
+
+            <section class="main-section" id="Browser_Object_Model">
+                <header><h3>Browser Object Model</h3></header>
+                <p>The Browser Object Model (BOM) represents additional objects provided by the browser (host
+                    environment) for working with everything except the document.</p>
+                <p>For instance:</p>
+                <ul>
+                    <li>The navigator object provides background information about the browser and the operating system.
+                        There are many properties, but the two most widely known are: navigator.userAgent – about the
+                        current browser, and navigator.platform – about the platform (can help to differentiate between
+                        Windows/Linux/Mac etc).</li>
+                    <li>The location object allows us to read the current URL and can redirect the browser to a new one.
+                    </li>
+                </ul>
+                <p>Here’s how we can use the location object:</p>
+                <code>alert(location.href); // shows current URL <br>
+                    if (confirm("Go to Wikipedia?")) <br> {
+                      location.href = "https://wikipedia.org"; } <br> // redirect the browser to another URL
+                    </code>
+                <p>The functions alert/confirm/prompt are also a part of the BOM: they are not directly related to the
+                    document, but represent pure browser methods for communicating with the user.</p>
+            </section>
+
+            <section class="main-section" id="Dom_tree">
+                <header><h3>Dom tree</h3></header>
+                <p>The backbone of an HTML document is tags.</p>
+                <p>According to the Document Object Model (DOM), every HTML tag is an object. Nested tags are “children”
+                    of the enclosing one. The text inside a tag is an object as well.</p>
+                <p>All these objects are accessible using JavaScript, and we can use them to modify the page.</p>
+                <p>For example, document.body is the object representing the body tag.</p>
+                <p>Running this code will make the body red for 3 seconds:</p>
+                <code>
+                    document.body.style.background = 'red'; <br> // make the background red <br>
+                    setTimeout(() => document.body.style.background = '', 3000); <br> // return back
+                </code>
+                <p>Here we used style.background to change the background color of document.body, but there are many
+                    other properties, such as:</p>
+                <ul>
+                    <li>innerHTML – HTML contents of the node.</li>
+                    <li>offsetWidth – the node width (in pixels)</li>
+                    <li>…and so on</li>
+                </ul>     
+            </section>
+
+            <section class="main-section" id="Walking_the_Dom">
+                <header><h3>Walking the Dom</h3></header>
+                <p>The DOM allows us to do anything with elements and their contents, but first we need to reach the corresponding DOM object.</p>
+                <p>All operations on the DOM start with the document object. That’s the main “entry point” to DOM. From it we can access any node.</p>
+                <p>On top: documentElement and body</p>
+                <code> html = document.documentElement; </code>
+                <p>The topmost document node is document.documentElement. That’s the DOM node of the html tag.</p>
+                <code> body = document.body</code>
+                <p>Another widely used DOM node is the  element – document.body.</p>
+                <code>head = document.head</code>
+                <p> <strong> DOM collections </strong></p>
+                <p>As we can see, childNodes looks like an array. But actually it’s not an array, but rather a collection – a special array-like iterable object.</p>
+                <p>There are two important consequences:</p>
+                <ol>
+                    <li>We can use for..of to iterate over it:</li>
+                    <code>for (let node of document.body.childNodes) { <br>
+                        alert(node);<br> // shows all nodes from the collection <br>
+                      }</code>
+                      <p>That’s because it’s iterable (provides the Symbol.iterator property, as required).</p>
+                      <li>Array methods won’t work, because it’s not an array:</li>
+                      <code>alert(document.body.childNodes.filter); // undefined (there's no filter method!)</code>
+                      <p>The first thing is nice. The second is tolerable, because we can use Array.from to create a “real” array from the collection, if we want array methods:</p>
+                      <code>alert( Array.from(document.body.childNodes).filter ); // function</code>     
+                </ol>
+            </section>
+
+            <section  class="main-section" id="Searching">
+                <header><h3>Searching</h3></header>
+                <p>DOM navigation properties are great when elements are close to each other. What if they are not? How to get an arbitrary element of the page? <br>
+                    There are additional searching methods for that.
+                </p>
+                <ol>
+                    <li>document.getElementById or just id</li>
+                    <code>
+                        // get the element <br>
+                        let elem = document.getElementById('elem'); <br>
+                        <br>
+                        // make its background red <br>
+                        elem.style.background = 'red'; <br>
+                    </code>
+                    <li>querySelectorAll</li>
+                    <code>
+                        let elements = document.querySelectorAll('ul > li:last-child'); <br>
+                        <br>
+                        for (let elem of elements) { <br>
+                          alert(elem.innerHTML); // "test", "passed" <br>
+                        }
+                    </code>
+                </ol>
+            </section>
+        </main>
+
+    </div>
+</body>
+
+</html>
