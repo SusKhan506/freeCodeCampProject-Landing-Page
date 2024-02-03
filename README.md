@@ -1,2 +1,0 @@
-# freeCodeCampProject
-HTML and CSS
